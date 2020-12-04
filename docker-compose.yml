@@ -9,7 +9,7 @@ networks:
 
 services:
   gateway-service-1.com:
-    image: fdobrotv/gateway_service:0.1.0
+    image: fdobrotv/gateway_service:0.2.0
     hostname: 'gateway-service-1.com'
     environment:
       SPRING_PROFILES_ACTIVE: peerN

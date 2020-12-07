@@ -6,6 +6,9 @@ Java 15, Gradle 6.6+
 
 Docker, docker-compose
 
+### Host name aliases in hosts file
+cat `127.0.0.1 gateway-service-1.com` >> /etc/hosts
+
 ## Prepare environment to run
 1 - Launch discovery service
 `git clone https://github.com/fdobrotv/springDiscoveryService.git`

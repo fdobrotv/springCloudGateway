@@ -30,4 +30,4 @@ eureka:
     homePageUrl: http://${eureka.instance.hostname}/
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_DEFAULT_ZONE}
+      defaultZone: ${EUREKA_DEFAULT_ZONE:http://discovery-service-1.com:8761/eureka/}

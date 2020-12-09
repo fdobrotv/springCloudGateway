@@ -12,10 +12,19 @@ spring:
       # TODO: Check it!
       # For curl "http://<gateway>/some-service/predicatePath/**"
       routes:
-        - id: some-service-route
-          uri: lb://some-service
+        - id: client-service
+          uri: lb://client-service
           predicates:
-            - Path=/predicatePath/**
+            - Path=/clientService/**
+          filters:
+            - RewritePath=/clientService/(?<path>.*), /$\{path}
+        - id: generator-service
+          uri: https://generator.swagger.io/
+          predicates:
+            - Path=/generatorService/**
+          filters:
+            - RewritePath=/generatorService/(?<path>.*), /$\{path}
+
 # Exposes http://localhost:8080/actuator/gateway/routes
 # http://localhost:8080/actuator/gateway/routes/some-service-route
 management:
@@ -26,7 +35,7 @@ management:
 
 eureka:
   instance:
-    hostname: ${HOST_NAME}
+    hostname: ${HOST_NAME:gateway-service-1.com}
     homePageUrl: http://${eureka.instance.hostname}/
   client:
     serviceUrl:

@@ -11,13 +11,12 @@ spring:
       discovery:
         locator:
           enabled: true
-      # TODO: Check it!
-      # For curl "http://<gateway>/client-service/predicatePath/**"
+      # For curl "http://<gateway>/somePredicatePath/**"
       routes:
-        - id: client-service-route
-          uri: lb://client-service
+        - id: some-service-route
+          uri: lb://some-service
           predicates:
-            - Path=/predicatePath/**
+            - Path=/somePredicatePath/**
 
 # Exposes http://localhost:8080/actuator/gateway/routes
 # http://localhost:8080/actuator/gateway/routes/some-service-route

@@ -8,7 +8,7 @@ networks:
     driver: bridge
 
 x-app-name: &APP_NAME
-  fdobrotv/gateway_service:0.4.0
+  fdobrotv/gateway_service:0.4.1
 
 x-eureka-zone: &EUREKA_ZONE
   http://discovery-service-1.com:8761/eureka/,http://discovery-service-2.com:8762/eureka/,http://discovery-service-3.com:8763/eureka/

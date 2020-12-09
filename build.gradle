@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'com.fdobrotv'
-version = '0.3.0'
+version = '0.4.5'
 sourceCompatibility = '15'
 
 configurations {
@@ -37,14 +37,20 @@ dependencies {
 	//Discovery service client
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
+	//Spring Retry
+	implementation 'org.springframework.retry:spring-retry'
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
+
 	//Actuator
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 	//TODO: Tracing
 //	implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
 
-	//TODO: Configuration from repository
-//	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+	//Distributed configuration
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+	//For legacy support of the bootstrap.yml instead of Vault
+	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
 
 	//TODO: Client-side load balancer
 //	implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'

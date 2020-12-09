@@ -7,16 +7,22 @@ networks:
     name: backend
     driver: bridge
 
+x-app-name: &APP_NAME
+  fdobrotv/gateway_service:0.4.1
+
+x-eureka-zone: &EUREKA_ZONE
+  http://discovery-service-1.com:8761/eureka/,http://discovery-service-2.com:8762/eureka/,http://discovery-service-3.com:8763/eureka/
+
 services:
   gateway-service-1.com:
-    image: fdobrotv/gateway_service:0.2.0
+    image: *APP_NAME
     hostname: 'gateway-service-1.com'
     environment:
-      SPRING_PROFILES_ACTIVE: peerN
       APPLICATION_NAME: gateway-service
       SERVER_PORT: 8080
       HOST_NAME: gateway-service-1.com
-      EUREKA_DEFAULT_ZONE: http://discovery-service-1.com:8761/eureka/,http://discovery-service-2.com:8762/eureka/,http://discovery-service-3.com:8763/eureka/
+      EUREKA_DEFAULT_ZONE: *EUREKA_ZONE
+      CONFIGURATION_SERVICE_ID: configuration-service
     networks:
       - backend
     ports:

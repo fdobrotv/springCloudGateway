@@ -61,7 +61,7 @@ dependencies {
 
 	implementation "io.springfox:springfox-boot-starter:3.0.0"
 
-		//Testing
+	//Testing
 	compile("org.springframework.cloud:spring-cloud-starter-contract-stub-runner"){
 		exclude group: "org.springframework.boot", module: "spring-boot-starter-web"
 	}

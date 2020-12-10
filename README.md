@@ -47,3 +47,6 @@ https://github.com/benwilcock/spring-cloud-gateway-demo/blob/master/runtime-disc
 
 ### Swagger endpoints
 http://gateway-service-1.com:8080/swagger-ui/
+
+## TODO:
+generate performance regression reports

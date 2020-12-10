@@ -22,6 +22,12 @@ spring:
           uri: lb://some-service
           predicates:
             - Path=/somePredicatePath/**
+  sleuth:
+    traceId128: true
+    sampler:
+      probability: 1.0
+    opentracing:
+      enabled: true
   zipkin:
     base-url: http://tracing-service-1.com:9411
 
@@ -40,6 +46,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_DEFAULT_ZONE:http://discovery-service-1.com:8761/eureka/}
+
+logging.level:
+  com.fdobrotv: trace
 
 #Uncomment this for Spring Retry debug
 #logging.level:

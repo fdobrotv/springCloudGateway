@@ -44,3 +44,6 @@ https://spring.io/projects/spring-cloud-circuitbreaker
 https://github.com/eugenp/tutorials/tree/master/spring-cloud/spring-cloud-gateway/src/main/java/com/baeldung/springcloudgateway/customfilters/gatewayapp/filters/factories
 https://spring.io/blog/2019/07/01/hiding-services-runtime-discovery-with-spring-cloud-gateway
 https://github.com/benwilcock/spring-cloud-gateway-demo/blob/master/runtime-discovery/docker-compose.yml
+
+### Swagger endpoints
+http://gateway-service-1.com:8080/swagger-ui/

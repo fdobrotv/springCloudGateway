@@ -30,7 +30,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'http://gateway-service-1.com:8080/specs/models/Product.yaml#Product'
+                $ref: 'http://gateway-service-1.com:8080/specs/models/Product.yaml#/Product'
 
 security:
   - cookieAuth: []

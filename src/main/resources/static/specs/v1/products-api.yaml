@@ -1,0 +1,36 @@
+openapi: 3.0.1
+info:
+  title: Product api
+  description: RESTful API for product requests CRUD operations
+  contact:
+    email: abzalkalimbetov@gmail.kz
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8080
+    variables:
+      server:
+        enum:
+          - 'http://localhost:8080'
+          - 'http://gateway-service-1.com:8080'
+        default: 'http://localhost:8080'
+      basePath:
+        default: /clientService
+
+paths:
+  /products:
+    get:
+      tags:
+        - Product
+      summary: Get all products
+      operationId: getProducts
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: 'http://gateway-service-1.com:8080/specs/models/Product.yaml#Product'
+
+security:
+  - cookieAuth: []

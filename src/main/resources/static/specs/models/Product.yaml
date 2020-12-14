@@ -1,0 +1,21 @@
+Product:
+  type: object
+  required:
+    - name
+  properties:
+    id:
+      readOnly: true
+      type: string
+      format: uuid
+      example: 3afe5b11-152c-46de-963b-8655dbc8602b
+      description: The product identifier
+    name:
+      type: string
+      example: Фрукт
+      description: Название продукта
+      minLength: 1
+    price:
+      type: number
+      minimum: 0
+      example: 12.15
+      description: Product's price

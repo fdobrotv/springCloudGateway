@@ -1,0 +1,11 @@
+replicaCount: 1
+servicePort: 8080
+containerPort: 8080
+image:
+  name: fdobrotv/gateway_service:0.5.3
+  pullPolicy: IfNotPresent
+app:
+  applicationName: configuration-service
+  profile: stage
+  tracingServiceHost: tracing-service
+  configurationServiceHost: configuration-service

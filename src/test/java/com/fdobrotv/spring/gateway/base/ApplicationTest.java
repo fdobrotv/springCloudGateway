@@ -11,7 +11,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         properties = {"httpbin=http://localhost:${wiremock.server.port}"})
 @AutoConfigureWireMock(port = 0)

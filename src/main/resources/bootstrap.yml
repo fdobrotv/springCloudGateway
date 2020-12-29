@@ -6,12 +6,11 @@ spring:
     name: ${APPLICATION_NAME:gateway-service}
   cloud:
     config:
-      discovery:
-        enabled: true
-        serviceId: ${CONFIGURATION_SERVICE_ID:configuration-service}
+      uri: http://${CONFIGURATION_SERVICE_HOST:configuration-service.com}:8888
       failFast: true
       retry:
-        max-attempts: 20
+        max-attempts: 60
+      token: ffa6f30b-041f-445a-9beb-3b42927fab1a
     gateway:
       discovery:
         locator:
@@ -29,7 +28,7 @@ spring:
     opentracing:
       enabled: true
   zipkin:
-    base-url: http://tracing-service-1.com:9411
+    base-url: http://${TRACING_SERVICE_HOST:tracing-service-1.com}:9411
 
 # Exposes http://localhost:8080/actuator/gateway/routes
 # http://localhost:8080/actuator/gateway/routes/some-service-route
@@ -38,14 +37,6 @@ management:
     web:
       exposure:
         include: "*"
-
-eureka:
-  instance:
-    hostname: ${HOST_NAME:gateway-service-1.com}
-    homePageUrl: http://${eureka.instance.hostname}/
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_DEFAULT_ZONE:http://discovery-service-1.com:8761/eureka/}
 
 logging.level:
   com.fdobrotv: trace

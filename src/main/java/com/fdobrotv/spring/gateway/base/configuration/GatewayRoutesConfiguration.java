@@ -1,5 +1,6 @@
 package com.fdobrotv.spring.gateway.base.configuration;
 
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
@@ -7,6 +8,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class GatewayRoutesConfiguration {
+
+    private final DiscoveryClient discoveryClient;
+
+    public GatewayRoutesConfiguration(DiscoveryClient discoveryClient) {
+        this.discoveryClient = discoveryClient;
+    }
+
     @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder,
                                       UriConfiguration uriConfiguration) {

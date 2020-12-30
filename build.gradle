@@ -34,7 +34,8 @@ dependencies {
 	// If you hate the reactive programming, uncomment this ↓ and comment out this ↑
 	//	implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j'
 
-	implementation 'org.springframework.cloud:spring-cloud-starter-kubernetes-client-all'
+	//Registration/discovery service client
+	implementation 'org.springframework.cloud:spring-cloud-kubernetes-client-discovery'
 
 	//Spring Retry
 	implementation 'org.springframework.retry:spring-retry'

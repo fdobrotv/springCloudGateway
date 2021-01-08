@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'com.fdobrotv'
-version = '0.5.1'
+version = '0.5.3'
 sourceCompatibility = '15'
 
 configurations {
@@ -22,7 +22,7 @@ repositories {
 }
 
 ext {
-	set('springCloudVersion', "2020.0.0-M5")
+	set('springCloudVersion', "2020.0.0-M6")
 }
 
 dependencies {
@@ -34,7 +34,8 @@ dependencies {
 	// If you hate the reactive programming, uncomment this ↓ and comment out this ↑
 	//	implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j'
 
-	//Discovery service client
+	//Registration/discovery service client
+	implementation 'org.springframework.cloud:spring-cloud-kubernetes-client-discovery'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
 	//Spring Retry

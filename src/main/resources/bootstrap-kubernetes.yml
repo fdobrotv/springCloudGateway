@@ -21,10 +21,6 @@ spring:
           uri: lb://some-service
           predicates:
             - Path=/somePredicatePath/**
-    kubernetes:
-      discovery:
-        enabled: false
-      enabled: false
   sleuth:
     traceId128: true
     sampler:
@@ -46,13 +42,9 @@ logging.level:
   com.fdobrotv: trace
 
 eureka:
-  instance:
-    hostname: ${HOST_NAME:gateway-service-1.com}
-    homePageUrl: http://${eureka.instance.hostname}/
   client:
-    serviceUrl:
-      defaultZone: ${EUREKA_DEFAULT_ZONE:http://discovery-service-1.com:8761/eureka/}
+    enabled: false
 
 #Uncomment this for Spring Retry debug
 #logging.level:
-#  org.springframework.retry: trace
+  #  org.springframework.retry: trace

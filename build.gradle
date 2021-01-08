@@ -36,6 +36,7 @@ dependencies {
 
 	//Registration/discovery service client
 	implementation 'org.springframework.cloud:spring-cloud-kubernetes-client-discovery'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
 	//Spring Retry
 	implementation 'org.springframework.retry:spring-retry'

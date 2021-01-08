@@ -22,6 +22,9 @@ cat `127.0.0.1 gateway-service-1.com
 `gradlew build`
 `gradlew jib`
 
+If you start without `kubernetes` spring profile, eureka discovery client will be used, otherwise kubernetes.
+Obviously you can not use both discovery client implementation together
+
 ### Run locally
 `gradlew bootRun`
 

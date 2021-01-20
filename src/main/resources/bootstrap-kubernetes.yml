@@ -16,7 +16,10 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true
+          #TODO: enable locators to work with kubernetes discovery and lb://client-service
+          enabled: false
+#          url-expression: "'http://'+serviceId+':'+getPort()"
+#          lower-case-service-id: true
       # For curl "http://<gateway>/somePredicatePath/**"
       routes:
         - id: some-service-route

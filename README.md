@@ -53,3 +53,5 @@ http://gateway-service-1.com:8080/swagger-ui/
 
 ## TODO:
 generate performance regression reports
+circuit breaking - https://piotrminkowski.com/2020/09/10/spring-cloud-kubernetes-load-balancer-guide/
+integrate @DataJpaTest 

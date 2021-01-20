@@ -53,3 +53,7 @@ http://gateway-service-1.com:8080/swagger-ui/
 
 ## TODO:
 generate performance regression reports
+
+## Useful links:
+https://spring.io/guides/tutorials/spring-boot-oauth2/
+https://cloud.spring.io/spring-cloud-security/reference/html/

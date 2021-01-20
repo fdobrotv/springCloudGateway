@@ -29,6 +29,10 @@ dependencies {
 	//Gateway
 	implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
 
+	//Spring security and SSO
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.springframework.cloud:spring-cloud-starter-security'
+
 	//Circuit breaker implementation
 	implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j'
 	// If you hate the reactive programming, uncomment this ↓ and comment out this ↑

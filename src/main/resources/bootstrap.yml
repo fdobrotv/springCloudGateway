@@ -35,6 +35,30 @@ spring:
       enabled: true
   zipkin:
     base-url: http://${TRACING_SERVICE_HOST:tracing-service-1.com}:9411
+  autoconfigure:
+    # TODO: remove when fixed https://github.com/spring-projects/spring-security/issues/6314
+    exclude: org.springframework.boot.actuate.autoconfigure.security.reactive.ReactiveManagementWebSecurityAutoConfiguration
+  security:
+    oauth2:
+      client:
+        registration:
+          gateway:
+            provider: uaa
+            client-id: gateway
+            #TODO: Use some strong secret
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            redirect-uri-template: "{baseUrl}/login/oauth2/code/{registrationId}"
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid,profile,email,resource.read
+        provider:
+          uaa:
+            #Use localhost or set 127.0.0.1 uaa in your hosts file
+            authorization-uri: http://localhost:8090/uaa/oauth/authorize
+            token-uri: http://uaa:8090/uaa/oauth/token
+            user-info-uri: http://uaa:8090/uaa/userinfo
+            user-name-attribute: sub
+            jwk-set-uri: http://uaa:8090/uaa/token_keys
 
 # Exposes http://localhost:8080/actuator/gateway/routes
 # http://localhost:8080/actuator/gateway/routes/some-service-route

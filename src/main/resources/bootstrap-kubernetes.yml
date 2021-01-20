@@ -6,6 +6,8 @@ spring:
     name: ${APPLICATION_NAME:gateway-service}
   cloud:
     config:
+      discovery:
+        enabled: false
       uri: http://${CONFIGURATION_SERVICE_HOST:configuration-service.com}:8888
       failFast: true
       retry:
